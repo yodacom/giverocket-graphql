@@ -21,12 +21,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yodacom/giverocket-graphql"
+    "url": "git+https://github.com/yodacom/giverocket-graphql.git"
   },
   "author": "jjb",
   "bugs": {
     "url": "https://github.com/yodacom/giverocket-graphql/issues"
   },
-  "homepage": "https://github.com/yodacom/giverocket-graphql.git#readme",
+  "homepage": "https://github.com/yodacom/giverocket-graphql#readme",
+  "private": false,
   "description": ""
 }
