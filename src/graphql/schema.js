@@ -1,17 +1,25 @@
 export default `
   type AuctionItem {
     _id: ID!
+    donor: Donor!
     title: String!
+    desc: String!
+    startingBid: Int!
     currentBid: Int!
-
+    img: String!
+    imgCaption!
     createdAt: String!
     updatedAt: String!
   }
 
   type Bidder {
     _id: ID!
+    first_name: String!
+    last_name: String!
     username: String!
-
+    password: String!
+    email: String!
+    items: [bidItem]
     createdAt: String!
     updatedAt: String!
   }
@@ -19,7 +27,14 @@ export default `
 
   type BidItem {
     _id: ID!
-    currentBid: Int!
+    auction: String!
+    auctionItem: AuctionItem!
+    currentBid: Int! // where does this come from?
+
+    SelectItemCheckBox: boolean
+
+
+
 
     bidder: Bidder!
     auctionItem: AuctionItem!

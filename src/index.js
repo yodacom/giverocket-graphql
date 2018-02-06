@@ -1,11 +1,11 @@
-import express from 'express';
-import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
-import { makeExecutableSchema } from 'graphql-tools';
-import { createServer } from 'http';
+import express from "express";
+import { graphiqlExpress, graphqlExpress } from "apollo-server-express";
+import { makeExecutableSchema } from "graphql-tools";
+import { createServer } from "http";
 
-import './config/db';
-import typeDefs from './graphql/schema';
-import resolvers from './graphql/resolvers';
+import "./config/db";
+import typeDefs from "./graphql/schema";
+import resolvers from "./graphql/resolvers";
 
 const app = express();
 
@@ -13,22 +13,22 @@ app.use(express.json());
 
 const schema = makeExecutableSchema({
   typeDefs,
-  resolvers,
+  resolvers
 });
 
 app.use(
-  '/graphiql',
+  "/graphiql",
   graphiqlExpress({
-    endpointURL: '/api/graphql',
-  }),
+    endpointURL: "/api/graphql"
+  })
 );
 
 app.use(
-  '/api/graphql',
+  "/api/graphql",
   graphqlExpress(req => ({
     ...req,
-    schema,
-  })),
+    schema
+  }))
 );
 
 const graphqlServer = createServer(app);
@@ -36,5 +36,5 @@ const graphqlServer = createServer(app);
 graphqlServer.listen(8000, err => {
   if (err) throw err;
 
-  console.log('App listen on port 8000');
+  console.log("App listen on port 8000");
 });
